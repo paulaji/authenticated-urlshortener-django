@@ -1,10 +1,34 @@
+/////
+/////
+/////
+/////
+/////
+
 django project name: backend
 django app name: application
 api: application > api
 
+/////
+/////
+/////
+/////
+/////
+
 superuser credentials: username: user | password: resu321321 | email: user@user.com
 
+/////
+/////
+/////
+/////
+/////
+
 notable urls: http://127.0.0.1:8000/api/ | http://127.0.0.1:8000/api/token/ | http://127.0.0.1:8000/api/token/refresh/
+
+/////
+/////
+/////
+/////
+/////
 
 virtualenv venv // created virtual environment
 venv\scripts\activate // activate venv
@@ -51,3 +75,19 @@ python manage.py migrate // afterwards to put this in effect
 
 to encrypt the username along with the token or to customize our token
 https://django-rest-framework-simplejwt.readthedocs.io/en/latest/customizing_token_claims.html
+
+/////
+/////
+/////
+/////
+/////
+
+CORS (Cross-Origin Resource Sharing)
+
+we are using django on port8000 and react on port3000
+therefore, to enable the communication between the two, we configure CORS
+
+python -m pip install django-cors-headers // to setup cors configurations and afterwards, do configurations in settings.py
+
+we are going to accept communication from all different sources in this case (usually, we can configure this specifically such that we only accept communication from the places we specify)
+CORS_ALLOW_ALL_ORIGINS = True

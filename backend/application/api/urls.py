@@ -1,10 +1,11 @@
 from django.urls import path
 from . import views
+# importing the customized token
+from . views import MyTokenObtainPairView
 
 # built-in authentication view/function of simplejwt
 # for obtaining the access key / refresh key 
 from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
     TokenRefreshView,
 )
 
@@ -12,6 +13,6 @@ urlpatterns = [
     # in the root url, implement the getRoutes function
     path('', views.getRoutes),
     # urls to access the built-in views of simplejwt
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'), # here, we display the customized token
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

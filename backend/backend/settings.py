@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # include the django app called application we created
     'application',
-    # include restframework (DRF)
+    # include restframework (drf - django restframework)
     'rest_framework',
     # to blacklist a refresh token
     'rest_framework_simplejwt.token_blacklist',
+    # for cors
+    'corsheaders',
 ]
 
 # to use simplejwt authentication
@@ -105,6 +107,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # adding the cors middleware
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -179,3 +183,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# allow cors to accept communication from everywhere
+CORS_ALLOW_ALL_ORIGINS = True
