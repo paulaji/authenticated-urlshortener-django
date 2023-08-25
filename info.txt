@@ -2,6 +2,10 @@ django project name: backend
 django app name: application
 api: application > api
 
+superuser credentials: username: user | password: resu321321 | email: user@user.com
+
+notable urls: http://127.0.0.1:8000/api/ | http://127.0.0.1:8000/api/token/
+
 virtualenv venv // created virtual environment
 venv\scripts\activate // activate venv
 
@@ -26,3 +30,13 @@ python -m pip install djangorestframework-simplejwt // for simplejwt
 after the installation, settings.py configuration is needed for simplejwt to tell django to use simplejwt authentication method
 we can also use the built-in views of simplejwt for access token and refresh token
 inorder to do that, we have to alter the urls.py inside our api folder
+
+inorder to check for the working of tokens, we need a user, therefore creating a superuser
+python manage.py createsuperuser // to create superuser
+username: user
+password: resu321321
+email: user@user.com
+
+we can actually set how jwt authentication should work in our specific way
+for that: https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
+add the code to settings.py
