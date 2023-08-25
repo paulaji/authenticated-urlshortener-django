@@ -4,7 +4,7 @@ api: application > api
 
 superuser credentials: username: user | password: resu321321 | email: user@user.com
 
-notable urls: http://127.0.0.1:8000/api/ | http://127.0.0.1:8000/api/token/
+notable urls: http://127.0.0.1:8000/api/ | http://127.0.0.1:8000/api/token/ | http://127.0.0.1:8000/api/token/refresh/
 
 virtualenv venv // created virtual environment
 venv\scripts\activate // activate venv
@@ -38,5 +38,8 @@ password: resu321321
 email: user@user.com
 
 we can actually set how jwt authentication should work in our specific way
+for eg: the lifespan of access token, refresh token etc
 for that: https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
 add the code to settings.py
+
+going into the refreshtoken url (token/refresh/), if we paste in the refresh token, we can obtain the access token
