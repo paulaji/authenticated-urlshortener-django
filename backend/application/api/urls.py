@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 
-# built-in authentication views of simplejwt
+# built-in authentication view/function of simplejwt
+# for obtaining the access key / refresh key 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,

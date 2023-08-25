@@ -47,3 +47,7 @@ refreshtoken rotation is set to True for extra safety so that each time an acces
 also for extra safety, we are going to blacklist a refresh token once it is used so that a potential hacker doesnt use a refresh token to generate new access/refresh tokens
 for blacklist feature to work, we have to do some additional settings changes, under installed apps, we have to add:
 'rest_framework_simplejwt.token_blacklist'
+python manage.py migrate // afterwards to put this in effect
+
+to encrypt the username along with the token or to customize our token
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/customizing_token_claims.html
