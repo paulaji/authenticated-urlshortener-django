@@ -1,3 +1,7 @@
+django project name: backend
+django app name: application
+api: application > api
+
 virtualenv venv // created virtual environment
 venv\scripts\activate // activate venv
 
@@ -10,6 +14,15 @@ inside the app application, created api folder for the api and included files __
 
 python manage.py runserver // starting the app
 
-python -m pip install djangorestframework // install DRF (this includes inbuilt password hashing when we update password), using python -m prefix is gonna install the djangorestframework globally outside the venv
+python -m pip install djangorestframework // install drf (this includes inbuilt password hashing when we update password), using python -m prefix is gonna install the djangorestframework globally outside the venv
 
-python manage.py migrate // migrate since we installed DRF
+python manage.py migrate // migrate since we installed drf
+
+when we start the server, drf interface comes up and when we navigate to the DRF page, we can find authentications and documents on how to setup drf authentication
+in the github link of JWT authentication, we can navigate to simplejwt page and read the setup
+
+python -m pip install djangorestframework-simplejwt // for simplejwt
+
+after the installation, settings.py configuration is needed for simplejwt to tell django to use simplejwt authentication method
+we can also use the built-in views of simplejwt for access token and refresh token
+inorder to do that, we have to alter the urls.py inside our api folder
