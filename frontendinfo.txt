@@ -9,4 +9,13 @@ npm start // to start the react app
 
 created dirs: components, context, pages and utils under src
 
+/////
+/////
+/////
+/////
+/////
+
 npm install react-router-dom // to install react router
+
+after setting up router, routes and route, we need to set-up private routes which are accessible say when we are logged in
+therefore, under utils, we extend the route class and modify it
