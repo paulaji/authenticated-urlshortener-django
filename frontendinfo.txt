@@ -6,3 +6,7 @@
 
 npx create-react-app frontend // start react app and call it frontend
 npm start // to start the react app
+
+created dirs: components, context, pages and utils under src
+
+npm install react-router-dom // to install react router
