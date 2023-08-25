@@ -42,4 +42,8 @@ for eg: the lifespan of access token, refresh token etc
 for that: https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
 add the code to settings.py
 
-going into the refreshtoken url (token/refresh/), if we paste in the refresh token, we can obtain the access token
+going into the refreshtoken url (token/refresh/), if we paste in the refresh token, we can obtain a new access token
+refreshtoken rotation is set to True for extra safety so that each time an access token is generated, a new refresh token is also generated
+also for extra safety, we are going to blacklist a refresh token once it is used so that a potential hacker doesnt use a refresh token to generate new access/refresh tokens
+for blacklist feature to work, we have to do some additional settings changes, under installed apps, we have to add:
+'rest_framework_simplejwt.token_blacklist'
