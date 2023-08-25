@@ -1,0 +1,15 @@
+virtualenv venv // created virtual environment
+venv\scripts\activate // activate venv
+
+pip install django // install django
+django-admin startproject backend // backend side using django
+
+python manage.py startapp application // created django app inside the project named application
+
+inside the app application, created api folder for the api and included files __init__, urls, views and serializers
+
+python manage.py runserver // starting the app
+
+python -m pip install djangorestframework // install DRF (this includes inbuilt password hashing when we update password), using python -m prefix is gonna install the djangorestframework globally outside the venv
+
+python manage.py migrate // migrate since we installed DRF
