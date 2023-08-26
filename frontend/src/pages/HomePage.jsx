@@ -3,7 +3,13 @@ import React from "react";
 const HomePage = () => {
   return (
     <div>
-      <h2>Namaskaaram!</h2>
+      <hr />
+      <small>
+        django-react jwt authenticator -
+        <a href="https://github.com/paulaji/authenticated-urlshortener-django">
+          source code
+        </a>
+      </small>
     </div>
   );
 };

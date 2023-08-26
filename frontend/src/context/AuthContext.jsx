@@ -2,6 +2,8 @@ import { createContext, useState, useEffect } from "react";
 
 // to decode the token object (access, refresh and username which we encoded)
 import jwt_decode from "jwt-decode";
+import { Navigate, json } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // previously useHistory
 
 const AuthContext = createContext();
 
@@ -11,6 +13,8 @@ export const AuthProvider = ({ children }) => {
   //  before authentication, setting user and token value as null
   let [authTokens, setAuthTokens] = useState(null);
   let [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
 
   // sending data to backend hosted on port8000 to request authentication tokens
   // 8000/api/token/ contains provision to type in username and password, so we send those there
@@ -44,6 +48,10 @@ export const AuthProvider = ({ children }) => {
       setAuthTokens(data);
       // decode the access token
       setUser(jwt_decode(data.access));
+      // storing token to local storage so that even if we refresh the page, we stay signed in
+      localStorage.setItem("authTokens", JSON.stringify(data));
+      // redirect the user to the home page
+      navigate("/");
     } else {
       alert("We have encountered an error!");
     }
