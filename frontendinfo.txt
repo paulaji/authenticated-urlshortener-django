@@ -48,3 +48,11 @@ stringify: to convert javascript object into json/string
 parse: to convert json/string into javascript object
 
 since in the backend we have set the access token time as 5 minutes, we need to write a function to update the access token every 5 minutes
+
+/////
+/////
+/////
+/////
+/////
+
+importing bootstrap for visual aesthetics
