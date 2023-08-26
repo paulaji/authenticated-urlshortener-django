@@ -137,3 +137,4 @@ we can use the IsAuthenticated of rest_framework
 register new user is now enabled via backend and django templating
 since cors is configured, we can click the register link from frontend and utilise django and django templating to create a new user
 also, after successful creation submission, we are redirected to frontend
+django also takes care of password hashing when form submission happens
