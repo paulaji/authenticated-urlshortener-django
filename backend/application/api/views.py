@@ -12,9 +12,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+# incase notes section is to be used
 # import the serialized content
-from .serializers import NoteSerializer
-from ..models import Note
+# from .serializers import NoteSerializer
+# from ..models import Note
 
 # inorder to customize the token, first we override
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -44,13 +45,15 @@ def getRoutes(request):
 
     return Response(routes)
 
-# function to serialize
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def getNotes(request):
-    user = request.user
-    notes = user.note_set.all()
-    notes = Note.objects.all()
-    serializer = NoteSerializer(notes, many=True)
 
-    return Response(serializer.data)
+# incase a basic note retrieval is to be made
+# function to serialize
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def getNotes(request):
+#     user = request.user
+#     # notes = user.note_set.all()
+#     notes = Note.objects.all()
+#     serializer = NoteSerializer(notes, many=True)
+
+#     return Response(serializer.data)
