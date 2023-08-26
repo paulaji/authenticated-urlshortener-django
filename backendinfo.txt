@@ -73,7 +73,7 @@ for blacklist feature to work, we have to do some additional settings changes, u
 'rest_framework_simplejwt.token_blacklist'
 python manage.py migrate // afterwards to put this in effect
 
-to encrypt the username along with the token or to customize our token
+to encrypt/encode the username along with the token or to customize our token
 https://django-rest-framework-simplejwt.readthedocs.io/en/latest/customizing_token_claims.html
 
 /////

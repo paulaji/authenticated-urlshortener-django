@@ -1,5 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 
+// to decode the token object (access, refresh and username which we encoded)
+import jwt_decode from "jwt-decode";
+
 const AuthContext = createContext();
 
 export default AuthContext;
@@ -36,6 +39,11 @@ export const AuthProvider = ({ children }) => {
     console.log("response:", response);
 
     if (response.status === 200) {
+      // using useState to store the values obtained, into the authTokens variable
+      // data variable contains the access and refresh tokens
+      setAuthTokens(data);
+      // decode the access token
+      setUser(jwt_decode(data.access));
     } else {
       alert("We have encountered an error!");
     }
@@ -43,6 +51,7 @@ export const AuthProvider = ({ children }) => {
 
   // assigning username and password from loginUser() to a variable
   let contextData = {
+    user: user,
     loginUser: loginUser,
   };
   return (

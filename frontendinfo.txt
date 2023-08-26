@@ -28,3 +28,11 @@ therefore, under utils, we write js login for outlets and navigations
 
 inorder to retrieve data from the backend, like the user info, token info etc.
 under context dir, we create AuthContext.jsx
+
+our token object contains:
+access token
+refresh token
+username (which we custom encoded into it)
+inorder to access these, we can use an npm library which will decode the token object
+
+npm install jwt-decode // token decoder
