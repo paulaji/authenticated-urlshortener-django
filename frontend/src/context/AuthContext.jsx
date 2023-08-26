@@ -11,12 +11,12 @@ export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
   //  before authentication, setting user and token value as null
-  let [authTokens, setAuthTokens] = useState(
+  let [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
       ? JSON.parse(localStorage.getItem("authTokens"))
       : null
   );
-  let [user, setUser] = useState(
+  let [user, setUser] = useState(() =>
     localStorage.getItem("authTokens")
       ? jwt_decode(localStorage.getItem("authTokens"))
       : null
@@ -65,10 +65,31 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // logout
+  let logoutUser = () => {
+    setAuthTokens(null);
+    setUser(null);
+    localStorage.removeItem("authTokens");
+    navigate("/login/");
+  };
+
+  // update the token because we have set access token time as 5 minutes, token rotation and blacklisting
+  let updateToken = async (e) => {
+    let response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // passing in the username and password to the targeted url
+      body: JSON.stringify({ refresh: authTokens.refresh }),
+    });
+  };
+
   // assigning username and password from loginUser() to a variable
   let contextData = {
     user: user,
     loginUser: loginUser,
+    logoutUser: logoutUser,
   };
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>

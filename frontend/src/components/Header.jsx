@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 
 const Header = () => {
-  let { user } = useContext(AuthContext);
+  let { user, logoutUser } = useContext(AuthContext);
   return (
     <>
       <Link to="/">Home</Link>
-      {user ? <p>Logout</p> : <Link to="/login">Login</Link>}
+      {user ? (
+        <Link onClick={logoutUser}>Logout</Link>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
       {/* if we have a user (user &&), display the username */}
       {user && <h2>Namaskaaram, {user.username}</h2>}
       {user && (
