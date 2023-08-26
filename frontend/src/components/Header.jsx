@@ -16,8 +16,9 @@ const Header = () => {
       {user && <h2>Namaskaaram, {user.username}</h2>}
       {user && (
         <span>
-          NOTE: Below given <strong>token info</strong> is for demonstration
-          purpose only and can be removed from the frontend!
+          <strong>JWT-details</strong> <br />
+          Info given below is for
+          <strong> demonstration purpose only!</strong>
         </span>
       )}
       {user && (

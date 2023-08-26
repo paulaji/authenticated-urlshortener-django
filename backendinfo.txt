@@ -91,3 +91,16 @@ python -m pip install django-cors-headers // to setup cors configurations and af
 
 we are going to accept communication from all different sources in this case (usually, we can configure this specifically such that we only accept communication from the places we specify)
 CORS_ALLOW_ALL_ORIGINS = True
+
+/////
+/////
+/////
+/////
+/////
+
+next, we are creating a note model
+maybe 1 or 2 user from the django admin panel such that when we login, we get notes corresponding to the specific user
+
+add the note model we created to the admin.py
+
+access the admin panel to create new user
