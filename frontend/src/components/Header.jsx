@@ -4,34 +4,52 @@ import AuthContext from "../context/AuthContext";
 
 const Header = () => {
   let { user, logoutUser } = useContext(AuthContext);
+
   return (
-    <>
-      <Link to="/">Home</Link>
-      {user ? (
-        <Link onClick={logoutUser}>Logout</Link>
-      ) : (
-        <Link to="/login">Login</Link>
-      )}
-      {/* if we have a user (user &&), display the username */}
-      {user && <h2>Namaskaaram, {user.username}</h2>}
-      {user && (
-        <span>
-          <strong>JWT-details</strong> <br />
-          Info given below is for
-          <strong> demonstration purpose only!</strong>
-        </span>
-      )}
-      {user && (
-        <div>
-          <h3>Token info:</h3>
-          <p>Token Type: {user.token_type}</p>
-          <p>Expiration: {user.exp}</p>
-          <p>Issued At: {user.iat}</p>
-          <p>JTI: {user.jti}</p>
-          <p>User ID: {user.user_id}</p>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
+      <div className="container">
+        <Link className="navbar-brand" to="/">
+          Home
+        </Link>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
+            {user ? (
+              <li className="nav-item">
+                <Link className="nav-link" to="/" onClick={logoutUser}>
+                  Logout
+                </Link>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
+          </ul>
         </div>
-      )}
-    </>
+        {user && (
+          <div className="ml-auto text-center">
+            <h2 className="mt-3">Namaskaaram, {user.username}</h2>
+            <div className="alert alert-info mt-3">
+              <strong>JWT-details</strong> <br />
+              Info given below is for{" "}
+              <strong>task/project demonstration!</strong>
+            </div>
+            <div className="card mt-3">
+              <div className="card-body">
+                <h3>Token info:</h3>
+                <p>Token Type: {user.token_type}</p>
+                <p>Expiration: {user.exp}</p>
+                <p>Issued At: {user.iat}</p>
+                <p>JTI: {user.jti}</p>
+                <p>User ID: {user.user_id}</p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 
