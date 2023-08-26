@@ -1,16 +1,16 @@
 import { createContext, useState, useEffect } from "react";
-
-// to decode the token object (access, refresh and username which we encoded)
 import jwt_decode from "jwt-decode";
-import { Navigate, json } from "react-router-dom";
-import { useNavigate } from "react-router-dom"; // previously useHistory
+import { Navigate, json } from "react-router-dom"; // Imported Navigate and json
+import { useNavigate } from "react-router-dom"; // Imported useNavigate (previously useHistory)
 
+// Create an authentication context
 const AuthContext = createContext();
 
 export default AuthContext;
 
+// AuthProvider component responsible for managing authentication
 export const AuthProvider = ({ children }) => {
-  //  before authentication, setting user and token value as null
+  // Initialize state for authentication tokens and user
   let [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
       ? JSON.parse(localStorage.getItem("authTokens"))
@@ -22,50 +22,45 @@ export const AuthProvider = ({ children }) => {
       : null
   );
 
+  let [loading, setLoading] = useState(true);
+
+  // Get the navigate function for routing
   const navigate = useNavigate();
 
-  // sending data to backend hosted on port8000 to request authentication tokens
-  // 8000/api/token/ contains provision to type in username and password, so we send those there
-  // if authenticated, we can fetch the refresh and access token
+  // Function to log in a user
   let loginUser = async (e) => {
     e.preventDefault();
     console.log("form submitted");
 
-    // storing access and refresh tokens in a variable response
-    // retrieving this using the fetch method
+    // Send a request to the backend to obtain authentication tokens
     let response = await fetch("http://127.0.0.1:8000/api/token/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      // passing in the username and password to the targeted url
       body: JSON.stringify({
         username: e.target.username.value,
         password: e.target.password.value,
       }),
     });
 
-    // obtaining the tokens after username and password submission
+    // Parse the response JSON data
     let data = await response.json();
     console.log("data:", data);
     console.log("response:", response);
 
+    // If successful response, update tokens and user data
     if (response.status === 200) {
-      // using useState to store the values obtained, into the authTokens variable
-      // data variable contains the access and refresh tokens
       setAuthTokens(data);
-      // decode the access token
       setUser(jwt_decode(data.access));
-      // storing token to local storage so that even if we refresh the page, we stay signed in
       localStorage.setItem("authTokens", JSON.stringify(data));
-      // redirect the user to the home page
       navigate("/");
     } else {
       alert("We have encountered an error!");
     }
   };
 
-  // logout
+  // Function to log out a user
   let logoutUser = () => {
     setAuthTokens(null);
     setUser(null);
@@ -73,24 +68,47 @@ export const AuthProvider = ({ children }) => {
     navigate("/login/");
   };
 
-  // update the token because we have set access token time as 5 minutes, token rotation and blacklisting
-  let updateToken = async (e) => {
+  // Function to update/refresh the access token
+  let updateToken = async () => {
+    console.log("update token method called");
     let response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      // passing in the username and password to the targeted url
       body: JSON.stringify({ refresh: authTokens.refresh }),
     });
+
+    let data = await response.json();
+
+    if (response.status === 200) {
+      setAuthTokens(data);
+      setUser(jwt_decode(data.access));
+      localStorage.setItem("authTokens", JSON.stringify(data));
+    } else {
+      logoutUser();
+    }
   };
 
-  // assigning username and password from loginUser() to a variable
+  // Context data containing user information and functions
   let contextData = {
     user: user,
     loginUser: loginUser,
     logoutUser: logoutUser,
   };
+
+  // Invoking the updateToken every 4 minutes to get new access token so that the user stays logged in
+  // In backend, we have set a timeout for each access token as 5 minutes, therefore we update the access token every 4 minutes (2400 seconds) just in case
+  useEffect(() => {
+    let interval = setInterval(() => {
+      if (authTokens) {
+        updateToken();
+      }
+    }, 2400);
+    return () => clearInterval(interval);
+  }, [authTokens, loading]);
+
+  // Provide the context data to the children components
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
   );
