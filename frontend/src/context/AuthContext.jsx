@@ -33,6 +33,12 @@ export const AuthProvider = ({ children }) => {
     // obtaining the tokens after username and password submission
     let data = await response.json();
     console.log("data:", data);
+    console.log("response:", response);
+
+    if (response.status === 200) {
+    } else {
+      alert("We have encountered an error!");
+    }
   };
 
   // assigning username and password from loginUser() to a variable
