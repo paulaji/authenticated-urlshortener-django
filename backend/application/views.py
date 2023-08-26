@@ -15,6 +15,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, "Registration successful! You may go back.")
+            return redirect('http://localhost:3000/login')
     else:
         form = SignUpForm()
     
