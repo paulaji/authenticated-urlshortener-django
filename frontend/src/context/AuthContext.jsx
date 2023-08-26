@@ -16,13 +16,23 @@ export const AuthProvider = ({ children }) => {
     e.preventDefault();
     console.log("form submitted");
 
-    let response = fetch("http://127.0.0.1:8000/api/token/", {
+    // storing access and refresh tokens in a variable response
+    // retrieving this using the fetch method
+    let response = await fetch("http://127.0.0.1:8000/api/token/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: null, password: null }),
+      // passing in the username and password to the targeted url
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value,
+      }),
     });
+
+    // obtaining the tokens after username and password submission
+    let data = await response.json();
+    console.log("data:", data);
   };
 
   // assigning username and password from loginUser() to a variable
