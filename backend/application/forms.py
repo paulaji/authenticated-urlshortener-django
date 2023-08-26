@@ -1,5 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+# importing user model to create users in user model type
+from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
 
