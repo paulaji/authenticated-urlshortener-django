@@ -18,4 +18,13 @@ created dirs: components, context, pages and utils under src
 npm install react-router-dom // to install react router
 
 after setting up router, routes and route, we need to set-up private routes which are accessible say when we are logged in
-therefore, under utils, we extend the route class and modify it
+therefore, under utils, we write js login for outlets and navigations
+
+/////
+/////
+/////
+/////
+/////
+
+inorder to retrieve data from the backend, like the user info, token info etc.
+under context dir, we create AuthContext.jsx
