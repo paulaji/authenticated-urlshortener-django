@@ -18,7 +18,7 @@ const Header = () => {
       )}
       {user && (
         <div>
-          <h3>Access token info:</h3>
+          <h3>Token info:</h3>
           <p>Token Type: {user.token_type}</p>
           <p>Expiration: {user.exp}</p>
           <p>Issued At: {user.iat}</p>
