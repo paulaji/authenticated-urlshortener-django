@@ -127,3 +127,11 @@ in views.py, we can use the inbuilt permission_classes import of rest_framework 
 
 for a person to access a private route, like in this case to access notes, user must be authenticated
 we can use the IsAuthenticated of rest_framework
+
+/////
+/////
+/////
+/////
+/////
+
+register new user is now enabled via backend and  django templating
