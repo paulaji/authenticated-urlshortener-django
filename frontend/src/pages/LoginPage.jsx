@@ -37,7 +37,8 @@ const LoginPage = () => {
         </form>
         <div className="text-center">
           <p>
-            Don't have an account? <Link to="/register">Register</Link>
+            Don't have an account?{" "}
+            <Link to="http://localhost:8000/register/register/">Register</Link>
           </p>
           <p>Or</p>
           <small>Use the following test account(s):</small>
