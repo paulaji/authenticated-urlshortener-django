@@ -1,13 +1,20 @@
 from django.http import JsonResponse
 from rest_framework.response import Response
 # importing an api view decorator
-from rest_framework.decorators import api_view
+# import permission_classes for private routing
+from rest_framework.decorators import api_view, permission_classes
+# import authenticated permission to check if the person is actually authenticated to view the private routes
+from rest_framework.permissions import IsAuthenticated
 
 # to customize our tokens
 # in urls.py, we have used built-in views/functions to obtain  access/refresh token pair
 # inorder to customize/encrypt things further into the token
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+
+# import the serialized content
+from .serializers import NoteSerializer
+from ..models import Note
 
 # inorder to customize the token, first we override
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -36,3 +43,14 @@ def getRoutes(request):
     ]
 
     return Response(routes)
+
+# function to serialize
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getNotes(request):
+    user = request.user
+    notes = user.note_set.all()
+    notes = Note.objects.all()
+    serializer = NoteSerializer(notes, many=True)
+
+    return Response(serializer.data)

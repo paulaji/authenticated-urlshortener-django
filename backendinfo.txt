@@ -104,3 +104,26 @@ maybe 1 or 2 user from the django admin panel such that when we login, we get no
 add the note model we created to the admin.py
 
 access the admin panel to create new user
+
+/////
+/////
+/////
+/////
+/////
+
+now that we have created a couple more users and populated them with notes, we need to pass this into the frontend
+we can serialize the python code into json and serve it into the frontend
+
+under api, we have serializers.py
+
+/////
+/////
+/////
+/////
+/////
+
+we are working with private routes
+in views.py, we can use the inbuilt permission_classes import of rest_framework for accessing private routes
+
+for a person to access a private route, like in this case to access notes, user must be authenticated
+we can use the IsAuthenticated of rest_framework
