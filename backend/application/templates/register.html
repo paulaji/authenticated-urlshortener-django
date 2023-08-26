@@ -20,13 +20,24 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <form method="POST" action="">
-            {% csrf_token %} {% if form.errors %}
+            {% csrf_token %}
+            <!--  -->
+            {% if form.errors %}
             <div
               class="alert alert-warning alert-dismissible fade show"
               role="alert"
             >
-              Uh-oh! We encountered an error. {% for field in form %} {% if
-              field.errors %} {{ field.errors }} {% endif %} {% endfor %}
+              Uh-oh! We encountered an error.
+              <!--  -->
+              {% for field in form %}
+              <!--  -->
+              {% if field.errors %}
+              <!--  -->
+              {{ field.errors }}
+              <!--  -->
+              {% endif %}
+              <!--  -->
+              {% endfor %}
               <button
                 type="button"
                 class="btn-close"
