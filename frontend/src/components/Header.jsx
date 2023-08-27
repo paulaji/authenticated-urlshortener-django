@@ -9,16 +9,34 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          Home
+          URL Shortener
         </Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             {user ? (
-              <li className="nav-item">
-                <Link className="nav-link" to="/" onClick={logoutUser}>
-                  Logout
-                </Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link"
+                    to="http://127.0.0.1:8000/register/shorten/"
+                    style={{
+                      color: "white", // Change the link text color
+                      backgroundColor: "purple", // Change the background color
+                      padding: "10px 20px", // Add padding
+                      borderRadius: "5px", // Add rounded corners
+                      fontWeight: "light", // Make the text bold
+                    }}
+                  >
+                    click here to check out the URL shortener
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/" onClick={logoutUser}>
+                    Logout
+                  </Link>
+                </li>
+              </>
             ) : (
               <li className="nav-item">
                 <Link className="nav-link" to="/login">
