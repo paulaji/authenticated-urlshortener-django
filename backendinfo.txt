@@ -148,5 +148,5 @@ django also takes care of password hashing when form submission happens
 url shortening
 create a url model, url view logic and render a template
 
-this will work in such a way that a short url corresponding to the lonf url will be created
+this will work in such a way that a short url corresponding to the long url will be created
 and when we try to access it, the shortened url will take it's corresponding long url and redirect to that page
