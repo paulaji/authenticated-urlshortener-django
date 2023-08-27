@@ -92,6 +92,7 @@ JWT token pair
 - Token Obtain: http://127.0.0.1:8000/api/token/
 - Token Refresh: http://127.0.0.1:8000/api/token/refresh/
 - User Registration: http://127.0.0.1:8000/register/registeruser/
+- URL Shortener: http://127.0.0.1:8000/register/shorten/
 
 ## Usage
 
