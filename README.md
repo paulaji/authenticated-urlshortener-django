@@ -7,6 +7,7 @@ This project is a URL shortener application built using Django for the backend a
 ## homepage
 
 homepage of this application contains link to url-shortener, jwt token details (for project demonstration), logout feature
+
 ![homepage](images/django_homepage.png)
 
 ## urlshortener page
