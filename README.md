@@ -1,11 +1,8 @@
-```markdown
 # Django-React URL Shortener
 
-Welcome to the Django-React URL Shortener project! This application provides a URL shortening service that allows users to create short URLs for long links. It's built using Django for the backend and React for the frontend.
+This project is a URL shortener application built using Django for the backend and React for the frontend. It allows users to shorten long URLs and access them via the generated short URLs. The application also features user authentication, private routes, and note management.
 
-## Getting Started
-
-### Backend Setup
+## Backend Setup
 
 1. Create the Django project and app:
    ```bash
@@ -23,7 +20,7 @@ Welcome to the Django-React URL Shortener project! This application provides a U
 
 4. Set up models, authentication, and URL endpoints according to the backend information provided.
 
-### Frontend Setup
+## Frontend Setup
 
 1. Create the React app:
    ```bash
@@ -84,6 +81,3 @@ Contributions are welcome! Please create a new branch and submit a pull request 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
-
-Feel free to copy and paste this entire content into your README.md file.
