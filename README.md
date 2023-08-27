@@ -1,3 +1,5 @@
+#authenticated-urlshortener-django-react
+
 ```markdown
 # Django-React URL Shortener
 
@@ -8,13 +10,13 @@ Welcome to the Django-React URL Shortener project! This application provides a U
 ### Backend Setup
 
 1. Create the Django project and app:
-   ```
+   ```bash
    django-admin startproject backend
    python manage.py startapp application
    ```
 
 2. Install required packages:
-   ```
+   ```bash
    pip install django djangorestframework djangorestframework-simplejwt django-cors-headers
    ```
 
@@ -26,12 +28,12 @@ Welcome to the Django-React URL Shortener project! This application provides a U
 ### Frontend Setup
 
 1. Create the React app:
-   ```
+   ```bash
    npx create-react-app frontend
    ```
 
 2. Install required packages:
-   ```
+   ```bash
    npm install react-router-dom jwt-decode
    ```
 
@@ -43,23 +45,23 @@ Welcome to the Django-React URL Shortener project! This application provides a U
 
 ### Backend:
 1. Activate the virtual environment:
-   ```
+   ```bash
    source venv/bin/activate
    ```
 
 2. Run the backend server:
-   ```
+   ```bash
    python manage.py runserver
    ```
 
 ### Frontend:
 1. Navigate to the frontend directory:
-   ```
+   ```bash
    cd frontend
    ```
 
 2. Run the frontend development server:
-   ```
+   ```bash
    npm start
    ```
 
@@ -86,4 +88,4 @@ Contributions are welcome! Please create a new branch and submit a pull request 
 This project is licensed under the [MIT License](LICENSE).
 ```
 
-Feel free to directly copy and paste this content into your README.md file.
+Feel free to copy and paste this entire content into your README.md file.
