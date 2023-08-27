@@ -74,10 +74,12 @@ This project is a URL shortener application built using Django for the backend a
 3. Use the URL shortener to generate short URLs for long URLs.
 4. Access private routes to view and manage your notes.
 
-## Contributing
-
-Contributions are welcome! Please create a new branch and submit a pull request with your changes. Be sure to follow the project's coding style and guidelines.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## References
+
+- Programming Assistance: Documentations, Youtube, Stackoverflow, ChatGPT
+- Text/Document Refactoring: ChatGPT
+- Aesthetic/UI Support: ChatGPT
