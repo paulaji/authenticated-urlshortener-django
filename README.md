@@ -16,6 +16,10 @@ You can copy and paste the URL you wish to shorten, and the resulting shortened 
 
 ![urlshortening](images/django_urlshortener.png)
 
+## Login page
+
+![loginpage](images/django_loginpage.png)
+
 ## Backend Setup
 
 1. Create the Django project and app:
