@@ -24,6 +24,7 @@ def register_user(request):
 
 # url shortening
 from .models import ShortenedURL
+from django.http import HttpResponseRedirect
 
 # to pass in long url and retrieve shortened url
 def shorten_url(request):
@@ -39,7 +40,7 @@ def shorten_url(request):
 def redirect_to_original(request, short_code):
     try:
         shortened_url = ShortenedURL.objects.get(short_code=short_code)
-        return redirect(shortened_url.long_url)
+        return HttpResponseRedirect(shortened_url.long_url)
     except ShortenedURL.DoesNotExist:
         error_message = "Please try again."
         return render(request, 'shorten_url.html', {'error_message': error_message})  
