@@ -56,3 +56,4 @@ since in the backend we have set the access token time as 5 minutes, we need to 
 /////
 
 importing bootstrap for visual aesthetics
+adding absolute links to the backend to access different services
