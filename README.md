@@ -2,7 +2,7 @@
 
 ##### This document has been authored by referencing the content provided in the `backendinfo.txt` and `frontendinfo.txt` files. For more comprehensive information about the project, kindly consult those aforementioned files.
 
-This project is a URL shortener application built using Django for the backend and React for the frontend. It allows users to shorten long URLs and access them via the generated short URLs. The application also features user authentication, private routes, and note management.
+This project is a URL shortener application built using Django for the backend and React for the frontend. It allows users to shorten long URLs and access them via the generated short URLs. The application also features jwt based user authentication, private routes.
 
 ## Backend Setup
 
