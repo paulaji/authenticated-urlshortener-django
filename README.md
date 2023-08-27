@@ -83,3 +83,5 @@ This project is licensed under the [MIT License](LICENSE).
 - Programming Assistance: Documentations, Youtube, Stackoverflow, ChatGPT
 - Text/Document Refactoring: ChatGPT
 - Aesthetic/UI Support: ChatGPT
+
+### This document was created by referring backendinfo.txt and frontendinfo.txt files. For further details on the project, refer those files.
