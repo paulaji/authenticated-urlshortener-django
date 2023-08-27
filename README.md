@@ -37,6 +37,10 @@ You can copy and paste the URL you wish to shorten, and the resulting shortened 
    pip install django djangorestframework djangorestframework-simplejwt django-cors-headers
    ```
 
+JWT token pair
+
+![tokenpair](images/django_tokenpairobtained.png)
+   
 3. Configure CORS:
    In `settings.py`, set `CORS_ALLOW_ALL_ORIGINS = True` to enable communication between the frontend and backend.
 
