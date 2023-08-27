@@ -25,9 +25,10 @@ from datetime import timedelta
 SECRET_KEY = 'django-insecure-1jg)g$y6tx8fvc5#&4$o-js@c)sk0$9j+v%say7-0)%p_(-kwl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# for url logic to work
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
