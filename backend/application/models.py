@@ -1,12 +1,21 @@
 from django.db import models
 
-# import the user object
-from django.contrib.auth.models import User
+# for url model
 
-# incase note model is to be made
-# # Create your models here.
-# # note model
-# class Note(models.Model):
-#     # our user will be the ForeignKey used to access notes data/table
-#     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-#     body = models.TextField(default="sample note")
+import random
+import string
+
+# to generate a random set of characters and numbers for a shorter url
+def generate_short_code():
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choice(characters) for _ in range(6))
+
+# shortened url model
+class ShortenedURL(models.Model):
+    long_url = models.URLField()
+    short_code = models.CharField(max_length=10, unique=True, default=generate_short_code)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+# visual showcase of shortcode changed to longurl
+def __str__(self):
+        return f"{self.short_code} => {self.long_url}"
