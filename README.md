@@ -1,5 +1,3 @@
-#authenticated-urlshortener-django-react
-
 ```markdown
 # Django-React URL Shortener
 
